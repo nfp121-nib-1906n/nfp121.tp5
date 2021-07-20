@@ -97,12 +97,17 @@ public class JPanelListe extends JPanel implements ActionListener, ItemListener 
         }
     }
 
+    private class trieDec implements Comparator<String>{
+        public int compare(String str1, String str2){ 
+            return str2.compareTo(str1);
+        }
+    }
     public void itemStateChanged(ItemEvent ie) {
         if (ie.getSource() == ordreCroissant)
                 Collections.sort(liste);
             
         else if (ie.getSource() == ordreDecroissant)
-              Collections.sort(liste, new trieDecroissant());
+              Collections.sort(liste, new trieDec());
        
 
         texte.setText(liste.toString());
