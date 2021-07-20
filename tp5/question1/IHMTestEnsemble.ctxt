@@ -16,4 +16,6 @@ comment7.params=evt
 comment7.target=void\ diffSymetriqueActionPerformed(java.awt.event.ActionEvent)
 comment8.params=args
 comment8.target=void\ main(java.lang.String[])
-numComments=9
+comment9.params=evt
+comment9.target=void\ intersectionActionPerformed(java.awt.event.ActionEvent)
+numComments=10
