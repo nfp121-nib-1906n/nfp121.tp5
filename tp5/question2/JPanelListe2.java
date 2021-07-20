@@ -30,11 +30,16 @@ public class JPanelListe2 extends JPanel implements ActionListener, ItemListener
     private JButton boutonAnnuler = new JButton("annuler");
 
     private TextArea texte = new TextArea();
+    
+    private StockageMementos stockagemementos;
+
 
     private List<String> liste;
     private Map<String, Integer> occurrences;
 
     public JPanelListe2(List<String> liste, Map<String, Integer> occurrences) {
+        stockagemementos = new StockageMementos();
+
         this.liste = liste;
         this.occurrences = occurrences;
 
@@ -96,6 +101,11 @@ public class JPanelListe2 extends JPanel implements ActionListener, ItemListener
                     afficheur.setText(" -->  " + occur + " occurrence(s)");
                 else
                     afficheur.setText(" -->  ??? ");
+            }else if (ae.getSource() == boutonAnnuler) {
+                if(!stockagemementos.getMementos().isEmpty()){
+                    liste = stockagemementos.getMemento().getMementoListe();
+                    occurrences = Chapitre2CoreJava2.occurrencesDesMots(liste);
+                }
             }
             texte.setText(liste.toString());
 
@@ -109,7 +119,7 @@ public class JPanelListe2 extends JPanel implements ActionListener, ItemListener
         }
     }
     public void itemStateChanged(ItemEvent ie) {
-         gardien.addMemento(new Memento(new LinkedList<>(liste)));
+         stockagemementos.addMemento(new Memento(new LinkedList<>(liste)));
         if (ie.getSource() == ordreCroissant)
         Collections.sort(liste);
         else if (ie.getSource() == ordreDecroissant)
@@ -134,7 +144,7 @@ public class JPanelListe2 extends JPanel implements ActionListener, ItemListener
         }
 
         if(resultat){
-            gardien.addMemento(new Memento(new LinkedList<>(listeTemp)));
+            stockagemementos.addMemento(new Memento(new LinkedList<>(listeTemp)));
 
         }
         return resultat;
