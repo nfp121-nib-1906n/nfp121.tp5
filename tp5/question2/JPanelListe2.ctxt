@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.target=JPanelListe2
+comment0.target=JPanelListe2 
 comment1.params=liste\ occurrences
 comment1.target=JPanelListe2(java.util.List,\ java.util.Map)
 comment2.params=ae
