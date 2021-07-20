@@ -1,7 +1,7 @@
 #BlueJ package file
 dependency1.from=IHMTestEnsembleTests
 dependency1.to=IHMTestEnsemble
-dependency1.type=UsesDependency
+dependency1.type=UsesDependency 
 dependency2.from=EnsembleTest
 dependency2.to=Ensemble
 dependency2.type=UsesDependency
